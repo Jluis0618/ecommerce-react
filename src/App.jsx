@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
     <NavBar />
     <Routes>
-     <Route>
+     <Route path='/cart'>
     
      </Route>
      </Routes>
