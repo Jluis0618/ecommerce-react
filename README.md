@@ -1,3 +1,3 @@
 # E-commerce
 
-Esto es una tiendo virtual
+Esto es una tienda virtual
