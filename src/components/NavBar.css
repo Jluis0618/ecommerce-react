@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  height: 0;
+}
+
+.cart-icon img {
+  width: 33px;
+  height: 33px;
+  padding-top: 0px;
+  margin-left: 5px;
+  padding-bottom: 3px;
+}
+
+.navbar-main {
+  list-style: none;
+  display: flex;
+  color: #fff;
+  background-color: #58a4b0;
+  height: 40px;
+  padding-bottom: 10px;
+  font-family: "Montserrat", sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar-ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  color: #fff;
+  margin-bottom: 32px;
+  margin-top: 15px;
+}
+
+.company-name {
+    font-weight: 500;
+    margin-bottom: 17.5px;
+    padding-left: 15px;
+}
+
+.navbar-ul a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-ul .input input {
+  height: 16px;
+  margin-left: 50px;
+}
+
+.navbar-ul .links {
+  font-size: 22px;
+  margin-left: 30px;
+  color: #ffffffad;
+  font-weight: 400;
+  transition: 0.2s;
+}
+
+.navbar-ul .links:hover {
+  transition: 0.2s;
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.input input {
+  outline: none;
+  background-color: #fff;
+  border: 0;
+  border-radius: 10px;
+  width: 553px;
+  height: 28px;
+  margin-top: 6px;
+}
+
+.company-name {
+    font-size: 23px;
+}
