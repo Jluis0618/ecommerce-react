@@ -3,7 +3,6 @@ import CartIcon from "../assets/cart.png";
 import "./NavBar.css";
 function NavBar() {
   return (
-    <>
       <nav className="navbar-main">
           <h2 className="company-name">Company Name</h2>
         <ul className="navbar-ul">
@@ -16,15 +15,10 @@ function NavBar() {
           <li>
             <Link to="/contact" className="links">Contact</Link>
           </li>
-          <li className="input">
-            <input type="text" placeholder="Search Products"/>
-          </li>
-          <li className="cart-icon">
-            <Link to="/cart" className="links"><img src={CartIcon} alt="Cart Icon" /></Link>
-          </li>
         </ul>
+            <input type="text" placeholder="Search Products" className="input"/>
+            <Link to="/cart" className="cart-icon"><img src={CartIcon} alt="Cart Icon" /></Link>
       </nav>
-    </>
   );
 }
 
