@@ -60,7 +60,7 @@ router.delete("/products/:id", async (req, res) => {
   }
 });
 
-// Filter product
+// Filter product by category
 
 router.get("/products/category/:category", async (req, res) => {
   try {
@@ -70,6 +70,8 @@ router.get("/products/category/:category", async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 });
+
+// Filter product by name
 
 router.get("/products/name/:name", async (req, res) => {
   try {
