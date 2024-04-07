@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/" element={<AdminPanel />}></Route>
       </Routes>
     </BrowserRouter>
   );
