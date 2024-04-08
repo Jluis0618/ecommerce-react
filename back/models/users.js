@@ -37,8 +37,18 @@ const userSchema = new mongoose.Schema({
       }
     },
   },
-  cart: [Product.schema],
+  cartProduct: [Product.schema],
 });
+
+userSchema.methods.toJSON = function () {
+  const user = this
+  const userObject = user.toObject()
+
+  delete userObject.password
+  delete userObject.tokens
+
+  return userObject
+}
 
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
@@ -76,8 +86,8 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.virtual('cartProduct', {
-  ref: 'CartProduct',
+userSchema.virtual('cart', {
+  ref: 'cartProduct',
   localField: '_id',
   foreignField: 'owner'
 })

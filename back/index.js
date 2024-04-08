@@ -10,8 +10,8 @@ connectionDb();
 
 app.use(cors())
 app.use(express.json())
-app.use(router)
-app.use(routerUser)
+app.use('/api', router)
+app.use('/api', routerUser)
 
 app.listen(port, () => {
     console.log(`The server is running in http://localhost:${port}`)
