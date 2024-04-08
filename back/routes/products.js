@@ -1,11 +1,11 @@
 import express from "express";
 import Product from "../models/products.js";
 
-const router = express.Router();
+const routerProducts = express.Router();
 
 // Create
 
-router.post("/products", async (req, res) => {
+routerProducts.post("/products", async (req, res) => {
   try {
     const product = await Product.create(req.body);
     res.json(product);
@@ -16,7 +16,7 @@ router.post("/products", async (req, res) => {
 
 // Read all products
 
-router.get("/products", async (req, res) => {
+routerProducts.get("/products", async (req, res) => {
   try {
     const product = await Product.find();
     res.json(product);
@@ -27,7 +27,7 @@ router.get("/products", async (req, res) => {
 
 // Read one product
 
-router.get("/products/:id", async (req, res) => {
+routerProducts.get("/products/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     res.json(product);
@@ -38,7 +38,7 @@ router.get("/products/:id", async (req, res) => {
 
 // Update product
 
-router.put("/products/:id", async (req, res) => {
+routerProducts.put("/products/:id", async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -51,7 +51,7 @@ router.put("/products/:id", async (req, res) => {
 
 // Delete product
 
-router.delete("/products/:id", async (req, res) => {
+routerProducts.delete("/products/:id", async (req, res) => {
   try {
     const products = await Product.findByIdAndDelete(req.params.id);
     res.json(products);
@@ -62,7 +62,7 @@ router.delete("/products/:id", async (req, res) => {
 
 // Filter product by category
 
-router.get("/products/category/:category", async (req, res) => {
+routerProducts.get("/products/category/:category", async (req, res) => {
   try {
     const products = await Product.find({ category: req.params.category });
     res.json(products);
@@ -73,7 +73,7 @@ router.get("/products/category/:category", async (req, res) => {
 
 // Filter product by name
 
-router.get("/products/name/:name", async (req, res) => {
+routerProducts.get("/products/name/:name", async (req, res) => {
   try {
     const products = await Product.find({ name: req.params.name });
     res.json(products);
@@ -82,4 +82,4 @@ router.get("/products/name/:name", async (req, res) => {
   }
 });
 
-export default router;
+export default routerProducts;

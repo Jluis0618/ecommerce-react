@@ -4,7 +4,7 @@ const host = "127.0.0.1";
 const port = "27017";
 const dbName = "e-commerce";
 
-const connectionDb = async () => {
+const connectionDb = () => {
   try {
     mongoose.connect(`mongodb+srv://carlospimentelandujar:jFK1L8jlMDfKjvNR@e-commerce.muroycd.mongodb.net/`);
     console.log("Connection succesful");
