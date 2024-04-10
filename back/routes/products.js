@@ -17,9 +17,14 @@ routerProducts.post("/products", async (req, res) => {
 // Read all products
 
 routerProducts.get("/products", async (req, res) => {
+const options = {
+  limit: parseInt(req.query.limit, 10) || 10,
+  page: parseInt(req.query.page, 10) || 1
+}
+
   try {
-    const product = await Product.find();
-    res.json(product);
+    const product = await Product.paginate({}, options)
+    res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ error: err.message });
   }
@@ -63,8 +68,13 @@ routerProducts.delete("/products/:id", async (req, res) => {
 // Filter product by category
 
 routerProducts.get("/products/category/:category", async (req, res) => {
+  const options = {
+    limit: parseInt(req.query.limit, 10) || 10,
+    page: parseInt(req.query.page, 10) || 1
+  }
+
   try {
-    const products = await Product.find({ category: req.params.category });
+    const products = await Product.paginate({ category: req.params.category }, options);
     res.json(products);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -74,8 +84,13 @@ routerProducts.get("/products/category/:category", async (req, res) => {
 // Filter product by name
 
 routerProducts.get("/products/name/:name", async (req, res) => {
+  const options = {
+    limit: parseInt(req.query.limit, 10) || 10,
+    page: parseInt(req.query.page, 10) || 1
+  }
+
   try {
-    const products = await Product.find({ name: req.params.name });
+    const products = await Product.paginate({ name: req.params.name }, options);
     res.json(products);
   } catch (error) {
     res.status(404).json({ error: error.message });
