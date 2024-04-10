@@ -3,7 +3,6 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart"
 import Contact from "./components/Contact";
-
 function App() {
   return (
     <BrowserRouter>
