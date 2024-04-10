@@ -1,20 +1,23 @@
 import mongoose from "mongoose";
 import validator from "validator";
-import Product from "../models/products.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+import CartProduct from "./cartProducts.js";
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true, trim: true },
+  name: {
+    type: String,
+    require: true,
+    trim: true,
+  },
   email: {
     type: String,
-    required: true,
     unique: true,
+    required: true,
     trim: true,
     lowercase: true,
     validate(value) {
       if (!validator.isEmail(value)) {
-        throw new Error("Invalid email");
+        throw new Error("Email incorrecto!");
       }
     },
   },
@@ -30,25 +33,26 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    minlength: [8, "Minimum of 8 characters"],
+    minlength: [8, "Minimo 8 caracteres"],
     validate(value) {
-      if (value.includes("12345678")) {
-        throw new Error("Password not safe");
+      if (value.includes("123456")) {
+        throw new Error("Password inseguro");
       }
     },
   },
-  cartProduct: [Product.schema],
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "CartProduct",
+    },
+  ],
 });
 
-userSchema.methods.toJSON = function () {
-  const user = this
-  const userObject = user.toObject()
-
-  delete userObject.password
-  delete userObject.tokens
-
-  return userObject
-}
+// userSchema.virtual("cart", {
+//   ref: "CartProduct",
+//   localField: "_id",
+//   foreignField: "owner",
+// });
 
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
@@ -68,8 +72,8 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
-  const token = jwt.sign({ _id: user._id.toString() }, "PhP_Cloths");
-
+  const token = jwt.sign({ _id: user._id.toString() }, "a");
+  // console.log(token);
   user.tokens = user.tokens.concat({ token });
   await user.save();
 
@@ -86,12 +90,15 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.virtual('cart', {
-  ref: 'cartProduct',
-  localField: '_id',
-  foreignField: 'owner'
-})
-
+userSchema.pre("deleteOne", async function (next) {
+  try {
+    const userId = this.getQuery()["_id"];
+    await CartProduct.deleteMany({ owner: userId });
+    next();
+  } catch (error) {
+    res.status(500).send({error: error.message})
+  }
+});
 
 const User = mongoose.model("User", userSchema);
 

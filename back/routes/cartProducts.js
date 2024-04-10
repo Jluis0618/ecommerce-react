@@ -1,6 +1,6 @@
 import express from "express";
-import CartProduct from "../models/cartProduct";
-import auth from "../middleware/auth";
+import CartProduct from "../models/cartProducts.js";
+import auth from "../middleware/auth.js";
 const routerCart = express.Router();
 
 routerCart.post("/cart", auth, async (req, res) => {
@@ -17,12 +17,15 @@ routerCart.post("/cart", auth, async (req, res) => {
   }
 });
 
-routerCart.get("/cart", auth, async (req, res) => {
+routerCart.get("/cart/one", auth, async (req, res) => {
   try {
-    await req.user.populate("cart").execPopulate();
-    res.send(req.user.cart);
+    const cart = await CartProduct.find({owner: req.user._id})
+    if (!cart) {
+      res.status(404).send('There is nothing here!')
+    }
+    res.send(cart)
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).send({error: error.message});
   }
 });
 
