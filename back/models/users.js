@@ -48,17 +48,11 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-// userSchema.virtual("cart", {
-//   ref: "CartProduct",
-//   localField: "_id",
-//   foreignField: "owner",
-// });
-
-userSchema.statics.findByCredentials = async (email, password) => {
+userSchema.statics.userExist = async (email, password) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Error("Error de login");
+    throw new Error("User not found");
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
@@ -70,25 +64,14 @@ userSchema.statics.findByCredentials = async (email, password) => {
   return user;
 };
 
-userSchema.methods.generateAuthToken = async function () {
+userSchema.methods.generateJwt = async function () {
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, "a");
-  // console.log(token);
   user.tokens = user.tokens.concat({ token });
   await user.save();
 
   return token;
 };
-
-userSchema.pre("save", async function (next) {
-  const user = this;
-
-  if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 8);
-  }
-
-  next();
-});
 
 userSchema.pre("deleteOne", async function (next) {
   try {

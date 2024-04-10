@@ -18,12 +18,11 @@ routerUser.post("/register", async (req, res) => {
 
 routerUser.post("/login", async (req, res) => {
   try {
-    const user = await User.findByCredentials(
+    const user = await User.userExist(
       req.body.email,
       req.body.password
     );
-    const token = await user.generateAuthToken();
-    console.log(token)
+    const token = await user.generateJwt();
     res.send({ user, token });
   } catch (error) {
     res.status(400).send({error: error.message});
