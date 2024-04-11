@@ -3,7 +3,7 @@ import "./CardProduct.css"
 import { BiCartAdd } from "react-icons/bi";
 
 
-export const CardProduct = () => {
+export const CardProduct = ({product}) => {
   return (
   <div className="card-product">
     <div className="img-product">
@@ -11,13 +11,13 @@ export const CardProduct = () => {
     </div>
     <div className="product-info">
         <div className="name-product">
-          <h2>Iphone 15 Pro Max</h2>
+          <h2>{product.name}</h2>
         </div>
         <div className="rate">
           <p>Rate</p>
         </div>
         <div className="price-product-cart">
-          <h3>RD$ 3,000.00</h3>
+          <h3>RD$ {product.price}</h3>
           <BiCartAdd className='cart'/>
         </div>
       </div>
