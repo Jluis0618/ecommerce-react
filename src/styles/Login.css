@@ -1,0 +1,88 @@
+body {
+    font-family: 'Montserrat';
+}
+
+.header-container {
+    margin: 2rem 0; 
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #58A4B0;
+    display: flex;
+    justify-content: end;
+}
+
+.div-container {
+    height: 100vh;
+    width: 27rem;
+    padding: 0px;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+}
+
+.input-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    /* border: 2px solid red;  */
+}
+
+.forgot-password {
+    text-align: end;
+    height: 20px;
+    font-weight: 500;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #58A4B0;
+}
+
+.div-boton {
+    height: auto;
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-boton button {
+    height: auto;
+    width: 80%;
+    background-color: #58A4B0;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.div-register {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.div-register p {
+    height: auto;
+    font-weight: bold;
+}
+
+.div-register a {
+    height: auto;
+    color: #58A4B0;
+    font-weight: 500;
+    text-decoration: none;
+}
