@@ -9,7 +9,7 @@
 }
 
 .category-filters{
-    width: 300px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -22,7 +22,7 @@
 .img-category img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 200px;
 }
 

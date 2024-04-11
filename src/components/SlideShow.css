@@ -1,0 +1,43 @@
+.container-principal{
+    position: relative;
+    overflow: hidden;
+}
+
+.container-slideShow{
+    display: flex;
+	flex-wrap: nowrap;
+}
+
+.slide{
+    min-width: 100%;
+	overflow: hidden;
+	transition: .3s ease all;
+	z-index: 10;
+	max-height: 800px;
+	position: relative;
+}
+
+.slide img{
+    width: 100%;
+    
+	vertical-align: top;
+}
+
+.texto-slide{
+    background-color: rgba(0,0,0,.3);
+	color: white;
+	width: 100%;
+	padding: 10px 60px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+}
+  
+
+@media screen and (max-width: 700px) {
+		
+    .texto-slide{
+        position: relative;
+		background: #000;
+    }
+}

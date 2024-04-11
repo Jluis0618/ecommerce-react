@@ -7,13 +7,13 @@ body {
   list-style: none;
   color: #fff;
   background-color: #58a4b0;
-  height: 60px;
+  height: 80px;
   width: 100%;
-  padding: 10px 0px;
+  padding: 20px 0px;
 
-  display: flex;
-  align-items: center;
+  display: flex;  
   justify-content: space-around;
+  align-items: center;
 }
 
 .company-name {
@@ -23,6 +23,7 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .navbar-ul {
@@ -37,11 +38,11 @@ body {
 .navbar-ul a {
   text-decoration: none;
   color: #fff;
+  padding: 0px 10px;
 }
 
 .navbar-ul .links {
   font-size: 22px;
-  margin-left: 30px;
   color: #ffffffad;
   font-weight: 400;
   transition: 0.2s;
@@ -90,11 +91,14 @@ body {
   text-decoration: none;
   color: #fff;
   font-size: 30px;
-  vertical-align: middle;
-
 }
 
-@media screen and (max-width: 1350px) {
+.react-icon-cart,
+.react-icon-account{
+  vertical-align: middle;
+}
+
+/* @media screen and (max-width: 1350px) {
   .navbar-main {
     list-style: none;
     display: flex;
@@ -310,4 +314,4 @@ body {
     padding-left: 2px;
     padding-right: 20px;
   }
-}
+} */

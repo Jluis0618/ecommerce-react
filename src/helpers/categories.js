@@ -1,18 +1,22 @@
 export const categories = [{
-    name: "Pantalones",
-     img: "https://via.placeholder.com/150" 
+    name: "Telefonos",
+     img: "https://i.postimg.cc/2yRKR8Zy/image.png" 
    }, 
    {
-     name: "Hoodies",
+     name: "Laptops",
      img: "https://via.placeholder.com/150"
    },
    {
-     name: "Zapatos",
+     name: "Tablets",
      img: "https://via.placeholder.com/150"
    },
    {
-     name: "T-shirts",
+     name: "Tv's",
      img: "https://via.placeholder.com/150"
+   },
+   {
+    name: "Audifonos",
+    img: "https://via.placeholder.com/150"
    },
    {
     name: "Accesorios",

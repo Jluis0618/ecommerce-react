@@ -18,7 +18,7 @@ function NavBar() {
 
   return (
       <nav className={`navbar-main ${open ? "active" : "   "}`}>
-          <Link to="/" className="company-name">Company Name</Link>
+          <Link to="/" className="company-name">SpoTech</Link>
         <ul className="navbar-ul">
           <li>
             <Link to="/" className="links">Inicio</Link>
@@ -34,9 +34,9 @@ function NavBar() {
         <input type="text" placeholder="Buscar productos" className="input"/>
 
         <div className="log-container">
-           <Link to="/cart" className="cart-icon"><IoCartSharp value={{className: 'react-icon-cart'}}/></Link>
+           <Link to="/cart" className="cart-icon"><IoCartSharp className="react-icon-cart"/></Link>
            <div className="account">
-              <a href="#"><MdAccountCircle/></a>
+              <a href="#"><MdAccountCircle className="react-icon-account"/></a>
               <p>Jose Luis</p>
            </div>
         </div>
