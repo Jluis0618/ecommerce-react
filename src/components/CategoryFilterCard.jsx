@@ -1,4 +1,5 @@
 import React from 'react'
+import "./CategoryFilterCard.css"
 
 export const CategoryFilterCard = ({category}) => {
   return (

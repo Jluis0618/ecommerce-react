@@ -1,5 +1,5 @@
 import "./Cart.css";
-import CardProductCart from "./CardProductCart";
+import CardProductCart from "../components/CardProductCart";
 function Cart() {
   return (
     <>

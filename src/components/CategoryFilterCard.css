@@ -1,0 +1,34 @@
+.content-category-filters{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    text-align: center;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.category-filters{
+    width: 300px;
+    cursor: pointer;
+}
+
+.img-category{
+    width: 100%;
+    background-color: #eee;
+    border-radius: 200px;
+}
+
+.img-category img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 200px;
+}
+
+.name-category{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 10px;
+    color: #58a4b0;
+}
