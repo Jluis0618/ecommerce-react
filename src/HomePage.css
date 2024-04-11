@@ -1,0 +1,17 @@
+.product-container{
+    width: 100%;
+    
+}
+
+.products{
+    padding: 40px;
+}
+
+.title-products{
+    font-size: 34px;
+    text-align: center;
+    color: #57A2AE;
+    border-bottom: 2px solid #CBFFCB;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}

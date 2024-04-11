@@ -1,32 +1,24 @@
 import "./App.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Login from './components/Login';
-import Register from "./components/Register";
-import AdminPanel from "./components/AdminPanel"
-
+import Cart from "./pages/Cart"
+import Contact from "./pages/Contact";
+import { Products } from "./pages/Products";
+import { HomePage } from "./HomePage";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
- <BrowserRouter>
-   <NavBar />
-   <Routes>
-     <Route path="/cart" ></Route>
-   </Routes>
-   <AdminPanel />
- </BrowserRouter>
-
- 
-
-//<BrowserRouter>
-//  <Login />
-//  <Routes>
-//    {/* <Route path="/"/> */}
-//    <Route exact path="/Register" element={<Register />}/>
-//  </Routes>
-//</BrowserRouter>
- 
-
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/products" element={<Products />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
