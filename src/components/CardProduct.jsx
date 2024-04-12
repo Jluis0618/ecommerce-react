@@ -13,9 +13,9 @@ export const CardProduct = ({product}) => {
         <div className="name-product">
           <h2>{product.name}</h2>
         </div>
-        <div className="rate">
+        {/* <div className="rate">
           <p>Rate</p>
-        </div>
+        </div> */}
         <div className="price-product-cart">
           <h3>RD$ {product.price}</h3>
           <BiCartAdd className='react-cart-icon'/>
