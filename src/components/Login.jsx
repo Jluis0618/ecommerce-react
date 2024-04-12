@@ -33,6 +33,7 @@ function Login() {
             const {token} = await response.json()
             localStorage.setItem('token', token)
             console.log(token)
+            window.location.href = "/";
           }
         } catch (error) {
           console.log({ error: error.message });
