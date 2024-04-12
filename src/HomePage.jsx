@@ -9,13 +9,18 @@ import { ProductContext } from './context/ProductContext'
 
 export const HomePage = () => {
 
-  const products = useContext(ProductContext);
+  const {products, nextPage, currentPage, prevPage} = useContext(ProductContext);
+
+  const handleNextPage = () => {
+    nextPage();
+  }
 
   return (
     <>
       <SlideShow/>
       <CategoryFilterCard category = {categories} />
       
+   
       <div className="product-container">
       <h2 className='title-products'>Para ti</h2>
         <div className="products">
@@ -23,6 +28,9 @@ export const HomePage = () => {
             <CardProduct key={product._id} product={product} />
           ))} 
         </div>
+      </div>
+      <div className="pagination">
+        <button onClick={handleNextPage}>Siguiente</button>
       </div>
     </>
   )

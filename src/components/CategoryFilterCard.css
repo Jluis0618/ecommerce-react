@@ -6,11 +6,13 @@
     text-align: center;
     height: 100%;
     padding-top: 50px;
+    
 }
 
 .category-filters{
     width: 200px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .img-category{

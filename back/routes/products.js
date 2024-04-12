@@ -18,7 +18,7 @@ routerProducts.post("/products", async (req, res) => {
 
 routerProducts.get("/products", async (req, res) => {
 const options = {
-  limit: parseInt(req.query.limit, 10) || 20,
+  limit: parseInt(req.query.limit, 20) || 20,
   page: parseInt(req.query.page, 10) || 1
 }
 
