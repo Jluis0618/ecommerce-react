@@ -6,7 +6,7 @@ import './Products.css'
 import { ProductContext } from '../context/ProductContext'
 export const Products = () => {
 
-  const products = useContext(ProductContext);
+  const {products} = useContext(ProductContext);
 
   return (
     <>

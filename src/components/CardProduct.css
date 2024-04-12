@@ -6,7 +6,7 @@
 }
 
 .card-product{
-    width: 300px;
+    width: 350px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #CBFFCB;
 }
@@ -42,7 +42,7 @@
     color: #007e00;
 }
 
-.price-product-cart .cart{
+.price-product-cart .react-cart-icon{
     background-color: #57A2AE;
     color: #fff;
     padding: 10px;
