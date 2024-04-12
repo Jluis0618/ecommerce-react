@@ -1,8 +1,11 @@
 import "./Cart.css";
 import CardProductCart from "../components/CardProductCart";
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
 function Cart() {
-  return (
+return (
     <>
+<NavBar/>
     <div className="content-cart">
       <div className="cart">
           <h1 className="cart-title">Tu carrito</h1>
@@ -24,7 +27,7 @@ function Cart() {
           </div>
       </aside>
     </div>
-      
+      <Footer />
     </>
   );
 }

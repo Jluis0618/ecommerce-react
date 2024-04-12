@@ -6,7 +6,8 @@ import { SlideShow } from './components/SlideShow'
 
 import "./HomePage.css"
 import { ProductContext } from './context/ProductContext'
-
+import NavBar from "./components/NavBar";
+import { Footer } from "./components/Footer";
 export const HomePage = () => {
 
   const {products, nextPage, currentPage, prevPage} = useContext(ProductContext);
@@ -17,6 +18,7 @@ export const HomePage = () => {
 
   return (
     <>
+    <NavBar/>
       <SlideShow/>
       <CategoryFilterCard category = {categories} />
       
@@ -32,6 +34,7 @@ export const HomePage = () => {
       <div className="pagination">
         <button onClick={handleNextPage}>Siguiente</button>
       </div>
+      <Footer/>
     </>
   )
 }

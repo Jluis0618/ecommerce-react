@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { CardProduct } from '../components/CardProduct'
 import { ProductFilter } from '../components/ProductFilter'
-
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
 import './Products.css'
 import { ProductContext } from '../context/ProductContext'
 export const Products = () => {
@@ -10,6 +11,7 @@ export const Products = () => {
 
   return (
     <>
+    <NavBar />
       <div className="container-products">
           <section className="sec-filters">
             <ProductFilter/>
@@ -20,6 +22,7 @@ export const Products = () => {
           ))} 
           </section>
       </div>
+      <Footer/>
     </>
   )
 }
