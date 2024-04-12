@@ -7,12 +7,14 @@ import { Products } from "./pages/Products";
 import { HomePage } from "./HomePage";
 import { Footer } from "./components/Footer";
 import Register from './components/Register'
+import Login from './components/Login'
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/login' element={<Login />}></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
