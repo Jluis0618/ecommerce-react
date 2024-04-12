@@ -1,5 +1,6 @@
 import '../styles/AdminPanel.css';
 import imgcamisa from '../assets/camisa-react.jpeg';
+import Tr from './Tr'
 
 function AdminPanel() {
     return (
@@ -15,68 +16,41 @@ function AdminPanel() {
                     <th>Edit</th>
                     <th>Delete</th>
 
-                    <tr>
-                        <td><img src={imgcamisa} /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>
-                            <button>
-                                <img src='../assets/imagen-candado.png'/>
-                            </button>
-                        </td>
-                        <td>
-                            <button>
-                                <img src='../assets/imagen-candado.png'/>
-                            </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
+                    <Tr 
+                    img={imgcamisa}
+                    name='Camisa React'
+                    category='Camisas'
+                    description='Camisaaa negra con el logo de react Medium'
+                    price='15.99$'
+                    state='Disponible'/>
+                    <Tr 
+                    img={imgcamisa}
+                    name='Camisa React'
+                    category='Camisas'
+                    description='Camisaaa negra con el logo de react Medium'
+                    price='15.99$'
+                    state='Disponible'/>
+                    <Tr 
+                    img={imgcamisa}
+                    name='Camisa React'
+                    category='Camisas'
+                    description='Camisaaa negra con el logo de react Medium'
+                    price='15.99$'
+                    state='Disponible'/>
+                    <Tr 
+                    img={imgcamisa}
+                    name='Camisa React'
+                    category='Camisas'
+                    description='Camisaaa negra con el logo de react Medium'
+                    price='15.99$'
+                    state='Disponible'/>
+                    <Tr 
+                    img={imgcamisa}
+                    name='Camisa React'
+                    category='Camisas'
+                    description='Camisaaa negra con el logo de react Medium'
+                    price='15.99$'
+                    state='Disponible'/>
                 </table>
             </div>
         </div>

@@ -26,7 +26,7 @@ const options = {
     const product = await Product.paginate({}, options)
     res.status(200).json(product);
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
