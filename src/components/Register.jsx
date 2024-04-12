@@ -35,6 +35,7 @@ function Register() {
     } catch (error) {
       console.log({ error: error.message });
     }
+
   };
   return (
     <form className="main-register-container" onSubmit={handleSubmit}>
