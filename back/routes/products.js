@@ -26,7 +26,7 @@ const options = {
     const product = await Product.paginate({}, options)
     res.status(200).json(product);
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -37,7 +37,7 @@ routerProducts.get("/products/:id", async (req, res) => {
     const product = await Product.findById(req.params.id);
     res.json(product);
   } catch (error) {
-    res.status(404).json({ error: err.message });
+    res.status(404).json({ error: error.message });
   }
 });
 
@@ -50,7 +50,7 @@ routerProducts.put("/products/:id", async (req, res) => {
     });
     res.json(product);
   } catch (error) {
-    res.status(404).json({ error: err.message });
+    res.status(404).json({ error: error.message });
   }
 });
 
