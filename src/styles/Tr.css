@@ -1,0 +1,32 @@
+tr {
+    max-height: auto;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+td {
+    padding: 5px; 
+    height: 20px; 
+    text-align: center;
+}
+
+.td-imagen {
+    width: 5rem;
+    height: 5rem;
+}
+
+td button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.boton-edit {
+    color: green;
+}
+
+.boton-delete {
+    color: red;
+}

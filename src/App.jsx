@@ -7,7 +7,7 @@ import { HomePage } from "./HomePage";
 import Register from './components/Register'
 import Login from './components/Login'
 import ProductCategory from "./pages/ProductCategory";
-import Admin from './components/AdminPanel'
+import AdminPanel from './components/AdminPanel'
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +19,7 @@ function App() {
         <Route path="/products:category" element={<ProductCategory />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/adminpanel" element={<AdminPanel />}></Route>
       </Routes>
     </BrowserRouter>
   );

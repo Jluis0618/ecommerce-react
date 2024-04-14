@@ -1,87 +1,68 @@
-import '../styles/AdminPanel.css';
-import imgcamisa from '../assets/camisa-react.jpeg';
-
+import "../styles/AdminPanel.css";
+import imgcamisa from "../assets/camisa-react.jpeg";
+import Tr from "./Tr";
+import NavBar from "../components/NavBar";
 function AdminPanel() {
-    return (
-        <div className='body'>
-            <div className='table-container'>
-                <table className='table'>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>State</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+  return (
+    <>
+      <NavBar></NavBar>
+      <div className="body">
+        <div className="table-container">
+          <table className="table">
+            <th>Image</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>State</th>
+            <th>Edit</th>
+            <th>Delete</th>
 
-                    <tr>
-                        <td><img src={imgcamisa} /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>
-                            <button>
-                                <img src='../assets/imagen-candado.png'/>
-                            </button>
-                        </td>
-                        <td>
-                            <button>
-                                <img src='../assets/imagen-candado.png'/>
-                            </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src='../assets/camisa-react.jpeg' /></td>
-                        <td>Camina React</td>
-                        <td>Camisas</td>
-                        <td>Camisa negra con el logo de react Medium</td>
-                        <td>15.99$</td>
-                        <td>Disponible</td>
-                        <td>boton</td>
-                        <td>boton</td>
-                    </tr>
-                </table>
-            </div>
+            <Tr
+              img={imgcamisa}
+              name="Camisa React"
+              category="Camisas"
+              description="Camisaaa negra con el logo de react Medium"
+              price="15.99$"
+              state="Disponible"
+            />
+            <Tr
+              img={imgcamisa}
+              name="Camisa React"
+              category="Camisas"
+              description="Camisaaa negra con el logo de react Medium"
+              price="15.99$"
+              state="Disponible"
+            />
+            <Tr
+              img={imgcamisa}
+              name="Camisa React"
+              category="Camisas"
+              description="Camisaaa negra con el logo de react Medium"
+              price="15.99$"
+              state="Disponible"
+            />
+            <Tr
+              img={imgcamisa}
+              name="Camisa React"
+              category="Camisas"
+              description="Camisaaa negra con el logo de react Medium"
+              price="15.99$"
+              state="Disponible"
+            />
+            <Tr
+              img={imgcamisa}
+              name="Camisa React"
+              category="Camisas"
+              description="Camisaaa negra con el logo de react Medium"
+              price="15.99$"
+              state="Disponible"
+            />
+          </table>
         </div>
-        
-    );
+      </div>
+    </>
+  );
 }
 
 export default AdminPanel;
