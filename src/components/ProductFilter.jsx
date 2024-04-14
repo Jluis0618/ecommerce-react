@@ -53,9 +53,17 @@ export const ProductFilter = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}>
           <option value="">Todas</option>
-          <option value="celulares">Celulares</option>
+          <option value="telefonos">Telefonos</option>
           <option value="laptops">Laptops</option>
           <option value="tablets">Tablets</option>
+          <option value="gaming">Gaming</option>
+          <option value="audifonos">Audifonos</option>
+          <option value="accesorios">Accesorios</option>
+          <option value="relojes">Relojes</option>
+          <option value="proyectores">Proyectores</option>
+          <option value="tvs">Tv's</option>
+          <option value="camaras">Camaras</option>
+          <option value="smart home">Smart Home</option>
         </select>
       </div>
 
@@ -69,6 +77,7 @@ export const ProductFilter = () => {
           <option value="0-100">$0 - $100</option>
           <option value="101-300">$101 - $300</option>
           <option value="301-500">$301 - $500</option>
+          <option value="301-500">$501 - $1000</option>
           {/* Agrega más opciones de rangos de precios según sea necesario */}
         </select>
       </div>

@@ -30,16 +30,23 @@ routerCart.get("/cart/one", auth, async (req, res) => {
 });
 
 routerCart.delete("/cart/:id", auth, async (req, res) => {
+  const productId = req.params.id;
+  const userId = req.user._id; // Obtiene el ID del usuario autenticado desde el middleware de autenticación
+
   try {
-    const cart = await CartProduct.findOne({ _id: req.params.id, owner: req.user._id });
-    
-    if(!cart) {
-        res.status(404).send()
+    // Busca el producto en el carrito del usuario por su ID y el ID del propietario (usuario autenticado)
+    const cartProduct = await CartProduct.findOneAndDelete({ _id: productId, owner: userId });
+
+    if (!cartProduct) {
+      return res.status(404).send({ error: 'Producto no encontrado en el carrito' });
     }
-    res.send(cart)
-} catch (error) {
-    res.status(500).send()
+
+    res.status(200).send({ message: 'Producto eliminado del carrito correctamente', deletedProduct: cartProduct });
+  } catch (error) {
+    console.error('Error al eliminar producto del carrito:', error);
+    res.status(500).send({ error: 'Error interno del servidor al eliminar el producto del carrito' });
   }
 });
+
 
 export default routerCart;
