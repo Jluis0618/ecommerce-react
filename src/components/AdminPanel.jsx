@@ -2,7 +2,12 @@ import "../styles/AdminPanel.css";
 import imgcamisa from "../assets/camisa-react.jpeg";
 import Tr from "./Tr";
 import NavBar from "../components/NavBar";
+import { useContext } from "react";
+import { ProductContext, ProductProvider } from "../context/ProductContext";
 function AdminPanel() {
+
+  const { products } = useContext(ProductContext)
+  console.log(products)
   return (
     <>
       <NavBar></NavBar>
@@ -18,40 +23,13 @@ function AdminPanel() {
             <th>Delete</th>
 
             <Tr
-              img={imgcamisa}
-              name="Camisa React"
-              category="Camisas"
-              description="Camisaaa negra con el logo de react Medium"
-              price="15.99$"
+              img={products.image}
+              name={products.name}
+              category={products.category}
+              description={products.description}
+              price={products.price}
             />
-            <Tr
-              img={imgcamisa}
-              name="Camisa React"
-              category="Camisas"
-              description="Camisaaa negra con el logo de react Medium"
-              price="15.99$"
-            />
-            <Tr
-              img={imgcamisa}
-              name="Camisa React"
-              category="Camisas"
-              description="Camisaaa negra con el logo de react Medium"
-              price="15.99$"
-            />
-            <Tr
-              img={imgcamisa}
-              name="Camisa React"
-              category="Camisas"
-              description="Camisaaa negra con el logo de react Medium"
-              price="15.99$"
-            />
-            <Tr
-              img={imgcamisa}
-              name="Camisa React"
-              category="Camisas"
-              description="Camisaaa negra con el logo de react Medium"
-              price="15.99$"
-            />
+
           </table>
         </div>
       </div>
