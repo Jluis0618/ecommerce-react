@@ -8,7 +8,11 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 
+
 function Login() {
+
+  const [error, setError] = useState(null);
+
     const [registerData, setRegisterData] = useState({
         email: "",
         password: "",
@@ -34,7 +38,10 @@ function Login() {
             localStorage.setItem('token', token)
             console.log(token)
             window.location.href = "/";
-          }
+          }else {
+            const { error  } = await response.json();
+            setError(error);
+        }
         } catch (error) {
           console.log({ error: error.message });
         }
@@ -48,7 +55,7 @@ function Login() {
                 <Input
                 id="1"
                 name="email"
-                placeholder="Email ID"
+                placeholder="Correo"
                 img={imgUsuario}
                 type="email"
                 alt="img Correo Electronico"
@@ -57,22 +64,25 @@ function Login() {
                 <Input
                 id="2"
                 name="password"
-                placeholder="Password"
+                placeholder="Contraseña"
                 img={imgPassword}
                 type="password"
                 alt="img Pasword"
                 handleChange={handleChange}/>
             </div> {/*input-container*/}
 
-            <p className="forgot-password"><a href="#">Forgot password?</a></p>
+            {error && (
+                    <p className="error-message">{error}</p>
+                )}
+
 
             <div className="div-boton">
-                <button>LOGIN</button>
+                <button>Ingresar</button>
             </div>
 
             <div className="div-register">
-                <p>Not registered?</p>
-                <Link to='/Register' >Create account</Link>
+                <p>¿No tienes una cuenta?</p>
+                <Link to='/Register' >Crea una</Link>
             </div>
 
 

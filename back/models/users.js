@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     minlength: [8, "Minimo 8 caracteres"],
     validate(value) {
       if (value.includes("123456")) {
-        throw new Error("Password inseguro");
+        throw new Error("Contraseña insegura");
       }
     },
   },
@@ -52,13 +52,13 @@ userSchema.statics.userExist = async (email, password) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Error("User not found");
+    throw new Error("El usuario no existe");
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) {
-    throw new Error("Error de login");
+    throw new Error("Contraseña incorrecta");
   }
 
   return user;

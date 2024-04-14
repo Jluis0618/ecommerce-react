@@ -10,13 +10,15 @@
 }
 
 .cart-title {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .total-products-card{
   font-size: 20px;
   font-weight: 500;
+  margin-bottom: 20px;  
 }
 
 .total-products-card span{
@@ -37,14 +39,16 @@
 
 
 .cart-pay-aside h2{
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
+  margin-bottom: 15px;
   color: #57A2AE;
 }
 
 .cart-pay-aside p{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .cart-pay-cant{

@@ -7,7 +7,7 @@ export const CategoryFilterCard = ({category}) => {
     <div className="content-category-filters">
       {category.map((category,index) =>{
             return (
-                <Link to={`/products?category=${(category.name).toLowerCase()}`} className="category-filters" key={index} >
+                <Link to={`/products/${(category.name).toLowerCase()}`} className="category-filters" key={index} >
                     <div className="img-category">
                         <img src={category.img} alt={category.name}/>
                     </div>

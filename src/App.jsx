@@ -6,6 +6,7 @@ import { Products } from "./pages/Products";
 import { HomePage } from "./HomePage";
 import Register from './components/Register'
 import Login from './components/Login'
+import ProductCategory from "./pages/ProductCategory";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/products:category" element={<ProductCategory />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>

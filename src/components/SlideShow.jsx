@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react'
 import "./SlideShow.css"
 import apple from '../assets/a.jpeg'
 import gaming from '../assets/jl.jpeg'
+import jbl from '../assets/jbl (1).jpg'
 
 import styled from 'styled-components'; // Importamos styled-components que es una librería que nos permite escribir css en js
 
@@ -58,14 +59,14 @@ useEffect(() => {
   return (
     <div className='container-principal'>
         <div className='container-slideShow' ref={slideshow}>
+        <div className='slide'>
+                  <img src={jbl} alt="Imagen 2"></img>
+            </div>
             <div className='slide'>
                 <img src={apple} alt="Imagen 1"></img>
             </div>
             <div className='slide'>
                 <img src={gaming} alt="Imagen 2"></img>
-            </div>
-            <div className='slide'>
-                  <img src="https://via.placeholder.com/1200x400" alt="Imagen 2"></img>
             </div>
         </div>
 

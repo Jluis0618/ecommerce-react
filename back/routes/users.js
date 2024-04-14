@@ -42,6 +42,17 @@ routerUser.post('/logout', auth, async (req, res) => {
   }
 })
 
+routerUser.get("/user/info", auth, async (req, res) => {
+  try {
+    // El middleware 'auth' ya ha verificado la autenticación del usuario y ha añadido el usuario al objeto de solicitud (req)
+    const user = req.user;
+    res.send(user); // Devuelve la información del usuario en la respuesta
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+});
+
+
 routerUser.delete('/delete/:id', auth, async(req, res) => {
   try {
    const user = User.findById(req.params.id)
