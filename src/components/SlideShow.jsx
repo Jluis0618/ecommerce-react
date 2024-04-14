@@ -62,10 +62,7 @@ useEffect(() => {
                 <img src={apple} alt="Imagen 1"></img>
             </div>
             <div className='slide'>
-                  <img src={gaming} alt="Imagen 2"></img>
-                  <div className='texto-slide'>
-                    <p>15% descuento en productos de apple</p>
-                </div>
+                <img src={gaming} alt="Imagen 2"></img>
             </div>
             <div className='slide'>
                   <img src="https://via.placeholder.com/1200x400" alt="Imagen 2"></img>

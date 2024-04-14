@@ -31,6 +31,7 @@ function Register() {
       });
       if (response.ok) {
         console.log("Success");
+        window.location.href = "/login";
       }
     } catch (error) {
       console.log({ error: error.message });

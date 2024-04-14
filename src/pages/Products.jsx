@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CardProduct } from '../components/CardProduct'
 import { ProductFilter } from '../components/ProductFilter'
 import NavBar from "../components/NavBar";
@@ -7,7 +7,12 @@ import './Products.css'
 import { ProductContext } from '../context/ProductContext'
 export const Products = () => {
 
-  const {products} = useContext(ProductContext);
+  const {products, applyFilters, resetFilters} = useContext(ProductContext);
+
+  useEffect(()=>{
+    applyFilters();
+  }, [])
+
 
   return (
     <>
