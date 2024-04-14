@@ -14,7 +14,6 @@ function AdminPanel() {
             <th>Category</th>
             <th>Description</th>
             <th>Price</th>
-            <th>State</th>
             <th>Edit</th>
             <th>Delete</th>
 
@@ -24,7 +23,6 @@ function AdminPanel() {
               category="Camisas"
               description="Camisaaa negra con el logo de react Medium"
               price="15.99$"
-              state="Disponible"
             />
             <Tr
               img={imgcamisa}
@@ -32,7 +30,6 @@ function AdminPanel() {
               category="Camisas"
               description="Camisaaa negra con el logo de react Medium"
               price="15.99$"
-              state="Disponible"
             />
             <Tr
               img={imgcamisa}
@@ -40,7 +37,6 @@ function AdminPanel() {
               category="Camisas"
               description="Camisaaa negra con el logo de react Medium"
               price="15.99$"
-              state="Disponible"
             />
             <Tr
               img={imgcamisa}
@@ -48,7 +44,6 @@ function AdminPanel() {
               category="Camisas"
               description="Camisaaa negra con el logo de react Medium"
               price="15.99$"
-              state="Disponible"
             />
             <Tr
               img={imgcamisa}
@@ -56,7 +51,6 @@ function AdminPanel() {
               category="Camisas"
               description="Camisaaa negra con el logo de react Medium"
               price="15.99$"
-              state="Disponible"
             />
           </table>
         </div>
