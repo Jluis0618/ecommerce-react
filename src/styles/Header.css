@@ -1,13 +1,12 @@
 .header-container {
     width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
     height: auto;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 25px;
+    color: #58A4B0;
 }

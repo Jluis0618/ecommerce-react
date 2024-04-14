@@ -50,6 +50,23 @@ routerProducts.get('/products', async (req, res) => {
   }
 });
 
+
+routerProducts.get("/products/:category", async (req, res) => {
+  const { category } = req.params;
+  const options = {
+    limit: parseInt(req.query.limit, 10) || 20,
+    page: parseInt(req.query.page, 10) || 1,
+  };
+
+  try {
+    const filter = { category: category.toLowerCase() }; // Filtrar por categoría (convertir a minúsculas)
+    const products = await Product.paginate(filter, options);
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Read one product
 
 routerProducts.get("/products/:id", async (req, res) => {
@@ -82,38 +99,6 @@ routerProducts.delete("/products/:id", async (req, res) => {
     res.json(products);
   } catch (error) {
     res.status(404).json({ error: "Not found" });
-  }
-});
-
-// Filter product by category
-
-routerProducts.get("/products/category/:category", async (req, res) => {
-  const options = {
-    limit: parseInt(req.query.limit, 10) || 10,
-    page: parseInt(req.query.page, 10) || 1
-  }
-
-  try {
-    const products = await Product.paginate({ category: req.params.category }, options);
-    res.json(products);
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-});
-
-// Filter product by name
-
-routerProducts.get("/products/name/:name", async (req, res) => {
-  const options = {
-    limit: parseInt(req.query.limit, 10) || 10,
-    page: parseInt(req.query.page, 10) || 1
-  }
-
-  try {
-    const products = await Product.paginate({ name: req.params.name }, options);
-    res.json(products);
-  } catch (error) {
-    res.status(404).json({ error: error.message });
   }
 });
 

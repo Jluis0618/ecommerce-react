@@ -6,10 +6,15 @@ import imgUsuario from "../assets/imagen-usuario.png";
 import imgPassword from "../assets/imagen-candado.png";
 import imgCorreo from "../assets/imagen-correoElectronico.png";
 import { useState } from "react";
+import { FaCheckCircle, FaArrowLeft } from "react-icons/fa";
+
+import Modal from "react-modal";
 function Register() {
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [error, setError] = useState(null);
+
   const [registerData, setRegisterData] = useState({
-    firstname: "",
-    lastname: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -30,65 +35,84 @@ function Register() {
         body: JSON.stringify(registerData),
       });
       if (response.ok) {
-        console.log("Success");
-        window.location.href = "/login";
-      }
+        setRegistrationSuccess(true);
+        setTimeout(() => {
+          setRegistrationSuccess(false);
+          window.location.href = '/login'
+        }, 2000);
+      }else {
+        const { errors } = await response.json();
+        setError(errors.password.message);
+    }
     } catch (error) {
       console.log({ error: error.message });
     }
-
   };
   return (
-    <form className="main-register-container" onSubmit={handleSubmit}>
-      <div className="div-register-container">
-        <Header value="CREATE ACCOUNT" />
-        <div className="input-container">
-          <Input
-            id="1"
-            name="firstname"
-            placeholder="First Name"
-            img={imgUsuario}
-            type="text"
-            alt="img usuario"
-            handleChange={handleChange}
-            value={registerData.firstname}
-          />
-          <Input
-            id="2"
-            name="lastname"
-            placeholder="Last Name"
-            img={imgUsuario}
-            type="text"
-            alt="img usuario"
-            handleChange={handleChange}
-            value={registerData.lastname}
-          />
-          <Input
-            id="3"
-            name="email"
-            placeholder="Email ID"
-            img={imgCorreo}
-            type="email"
-            alt="img Correo Electronico"
-            handleChange={handleChange}
-            value={registerData.email}
-          />
-          <Input
-            id="4"
-            name="password"
-            placeholder="Password"
-            img={imgPassword}
-            type="password"
-            alt="img Pasword"
-            handleChange={handleChange}
-            value={registerData.password}
-          />
+    <>
+      <form className="main-register-container" onSubmit={handleSubmit}>
+        <div className="div-register-container">
+          <a href="/login" className="back-to-login"> <span><FaArrowLeft className="arrow-left-register"/></span>Volver al login</a>
+          <Header value="CREATE ACCOUNT" />
+          <div className="input-container">
+            <Input
+              id="1"
+              name="name"
+              placeholder="Nombre"
+              img={imgUsuario}
+              type="text"
+              alt="img usuario"
+              handleChange={handleChange}
+              value={registerData.name}
+            />
+            <Input
+              id="3"
+              name="email"
+              placeholder="Correo eléctronico"
+              img={imgCorreo}
+              type="email"
+              alt="img Correo Electronico"
+              handleChange={handleChange}
+              value={registerData.email}
+            />
+            <Input
+              id="4"
+              name="password"
+              placeholder="Contraseña"
+              img={imgPassword}
+              type="password"
+              alt="img Pasword"
+              handleChange={handleChange}
+              value={registerData.password}
+            />
+          </div>
+
+          {error && (
+                    <p className="error-message">{error}</p>
+                )}
+
+          <div className="div-register-boton">
+            <button>REGISTER</button>
+          </div>
         </div>
-        <div className="div-register-boton">
-          <button>REGISTER</button>
+      </form>
+
+      {/* Modal para registro exitoso */}
+      <Modal
+        isOpen={registrationSuccess}
+        contentLabel="Registro Exitoso"
+        onRequestClose={() => setRegistrationSuccess(false)}
+        ariaHideApp={false}
+        className="custom-modal"
+        overlayClassName="custom-overlay"
+      >
+        <div className="modal-content">
+          <FaCheckCircle className="check-register" />
+          <p>¡Se ha registrado correctamente!</p>
+          <p>Redirigiendo al inicio de sesión...</p>
         </div>
-      </div>
-    </form>
+      </Modal>
+    </>
   );
 }
 

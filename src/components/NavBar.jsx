@@ -1,23 +1,26 @@
+import { useContext,useState } from "react";
 import { Link } from "react-router-dom";
 import { IoCartSharp } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import "./NavBar.css";
+import { AuthContext } from "../context/AuthContext";
 
-import { useState } from "react";
+
 
 
 function NavBar() {
 
-  const [open, setOpen] = useState(false)
+  const { user, logout } = useContext(AuthContext);
 
-  const handleMenuOpen = () => {
-    setOpen(!open)
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = "/login";
   }
 
 
-
   return (
-      <nav className={`navbar-main ${open ? "active" : "   "}`}>
+      <nav className={`navbar-main`}>
           <Link to="/" className="company-name">SpoTech</Link>
         <ul className="navbar-ul">
           <li>
@@ -31,14 +34,21 @@ function NavBar() {
           </li>
         </ul>
 
-        <input type="text" placeholder="Buscar productos" className="input-search-term"/>
+        {/* <input type="text" placeholder="Buscar productos" className="input-search-term"/> */}
 
         <div className="log-container">
            <Link to="/cart" className="cart-icon"><IoCartSharp className="react-icon-cart"/></Link>
-           <div className="account">
-              <a href="#"><MdAccountCircle className="react-icon-account"/></a>
-              <p>Jose Luis</p>
-           </div>
+           {user ? (
+          <>
+            <div className="account">
+              <MdAccountCircle className="react-icon-account" />
+              <p>{user.name}</p>
+            </div>
+            <button onClick={handleLogout} className="btnLogOut">Cerrar sesión</button>
+          </>
+        ) : (
+          <Link to="/login" className="btnLogIn">Iniciar sesión</Link>
+        )}
         </div>
 
 

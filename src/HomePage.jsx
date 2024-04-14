@@ -10,17 +10,14 @@ import NavBar from "./components/NavBar";
 import { Footer } from "./components/Footer";
 export const HomePage = () => {
 
-  const {products, nextPage, currentPage, prevPage} = useContext(ProductContext);
+  const {products} = useContext(ProductContext);
 
-  const handleNextPage = () => {
-    nextPage();
-  }
-
+  
   return (
     <>
     <NavBar/>
       <SlideShow/>
-      <CategoryFilterCard category = {categories} />
+      {/* <CategoryFilterCard category = {categories} /> */}
       
    
       <div className="product-container">
@@ -31,9 +28,7 @@ export const HomePage = () => {
           ))} 
         </div>
       </div>
-      <div className="pagination">
-        <button onClick={handleNextPage}>Siguiente</button>
-      </div>
+      
       <Footer/>
     </>
   )
