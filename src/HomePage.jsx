@@ -17,7 +17,7 @@ export const HomePage = () => {
     <>
     <NavBar/>
       <SlideShow/>
-      {/* <CategoryFilterCard category = {categories} /> */}
+      <CategoryFilterCard category = {categories} />
       
    
       <div className="product-container">

@@ -67,9 +67,16 @@ body {
 
 .cart-icon {
   color: #fff;
-  font-size: 30px;
-  align-self: center;
-  vertical-align: middle;
+  font-size: 35px;
+  background-color: #58a4b0;
+  z-index: 20;
+  padding: 10px; 
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+
+  position: fixed;
+  right: 3%;
 }
 
 .log-container{
@@ -77,6 +84,20 @@ body {
   justify-content: space-around;
   align-items: center;
   gap: 10px;
+}
+
+.cart-counter{
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  z-index: 1;
+
+  font-size: 13px;
+  background-color: #CBFFCB;
+  padding: 5px 10px;
+  color: #58a4b0;
+  font-weight: 700;
+  border-radius: 100%;
 }
 
 .account{

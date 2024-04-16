@@ -6,7 +6,9 @@
 }
 
 .card-product{
-    width: 250px;
+    max-width: 250px;
+    height: 500px;
+    max-height: 500px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #CBFFCB;
@@ -21,12 +23,17 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 20px;
+    padding: 10px;
 }
 
 .product-info{
     padding: 5px 15px;
-    max-height: 100%;
+    
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .name-product{
@@ -38,6 +45,7 @@
 .price-product-cart{
     display: flex;
     justify-content: space-between;
+    justify-self: flex-end;
     align-items: center;
 }
 

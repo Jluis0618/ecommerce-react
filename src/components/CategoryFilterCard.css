@@ -6,7 +6,7 @@
     text-align: center;
     height: 100%;
     padding-top: 50px;
-    
+    margin-bottom: 40px;
 }
 
 .category-filters{
@@ -18,7 +18,7 @@
 .img-category{
     width: 100%;
     border: 1px solid #cccccc79;
-    border-radius: 200px;
+    border-radius: 100%;
 }
 
 .img-category img{
