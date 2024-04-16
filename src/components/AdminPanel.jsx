@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { ProductContext, ProductProvider } from "../context/ProductContext";
 import Modal from "react-modal";
 import { uploadFile } from "../../back/firebase/config";
+import Swal from "sweetalert2";
 function AdminPanel() {
   const {
     products,
@@ -53,6 +54,12 @@ function AdminPanel() {
       });
       if (response.ok) {
         setModalState(false);
+        Swal.fire({
+            title: "Agregado correctamente",
+            text: "El producto ha sido agregado correctamente",
+            icon: "success",
+            confirmButtonText: "Ok",
+          })
       } else {
         console.error("Error al agregar el producto");
       }
@@ -62,8 +69,26 @@ function AdminPanel() {
   };
 
   const handleDelete = (productId) => {
-    removeProductFromAdminPanel(productId);
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: "No podrás revertir esto!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Eliminado!",
+            text: "El producto ha sido eliminado del carrito",
+            icon: "success"
+          });
+          removeProductFromAdminPanel(productId);
     setProducts(products.filter((product) => product._id !== productId));
+        }
+      });
+    
   };
 
   // const handleUpdate = (productId) => {
