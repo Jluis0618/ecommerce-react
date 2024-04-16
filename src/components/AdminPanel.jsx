@@ -6,7 +6,8 @@ import { ProductContext, ProductProvider } from "../context/ProductContext";
 import Modal from "react-modal";
 import { uploadFile } from "../../back/firebase/config";
 function AdminPanel() {
-  const { products, removeProductFromAdminPanel } = useContext(ProductContext);
+  const { products, removeProductFromAdminPanel, nextPage, prevPage } =
+    useContext(ProductContext);
   const [ModalState, setModalState] = useState(false);
   const [ModalStateUpdate, setModalStateUpdate] = useState(false);
   const [file, setFile] = useState(null);
@@ -61,7 +62,6 @@ function AdminPanel() {
     const url = new URL(window.location.href);
     url.searchParams.set("id", id);
     window.history.pushState({}, "", url);
-
   };
 
   const updateProduct = async (e, productId) => {
@@ -87,11 +87,17 @@ function AdminPanel() {
         } else {
           console.error("Error al actualizar producto");
         }
-      },1500) 
-      }
-      catch (error) {
-        console.error(error);
-      }
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleNextPage = () => {
+    nextPage();
+  };
+  const handlePrevPage = () => {
+    prevPage();
   };
 
   const handleChange = (e) => {
@@ -99,10 +105,13 @@ function AdminPanel() {
   };
 
   const handleChangeUpdate = (e) => {
-    setNewProductDataUpdate({ ...newProductDataUpdate, [e.target.name]: e.target.value });
+    setNewProductDataUpdate({
+      ...newProductDataUpdate,
+      [e.target.name]: e.target.value,
+    });
   };
-  const urlParams = new URLSearchParams(window.location.search)
-  const idParams = urlParams.get('id')
+  const urlParams = new URLSearchParams(window.location.search);
+  const idParams = urlParams.get("id");
   return (
     <>
       <NavBar></NavBar>
@@ -156,6 +165,22 @@ function AdminPanel() {
               );
             })}
           </table>
+        </div>
+        <div className="container-pagination-butttons">
+          <button
+            type="button"
+            className="pagination-button"
+            onClick={() => handlePrevPage()}
+          >
+            Anterior
+          </button>
+          <button
+            type="button"
+            className="pagination-button"
+            onClick={() => handleNextPage()}
+          >
+            Siguiente
+          </button>
         </div>
       </div>
       <Modal

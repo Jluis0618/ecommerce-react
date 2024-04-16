@@ -77,3 +77,23 @@ ion-icon {
     font-weight: 500;
     cursor: pointer;
 }
+
+.container-pagination-butttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.container-pagination-butttons button {
+    color: rgb(255, 255, 255);
+    background-color: #58A4B0;
+    font-size: 17px;
+    width: 155px;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: 750;
+    cursor: pointer;
+    border: none;
+}
