@@ -1,7 +1,6 @@
 .table-container {
     width: 80%;
     height: auto;
-    max-height: 600px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -14,7 +13,6 @@
 .table {
     width: 100%;
     height: auto;
-    max-height: 500px;
     border-collapse: collapse;
 }
 
@@ -24,4 +22,58 @@
 
 ion-icon {
     font-size: 1.5rem;
+}
+
+.new-product-button {
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(123, 255, 132);
+    font-size: 17px;
+    width: 155px;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.body-admin-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    text-align: right;
+    right: 180px;
+    height: 0px;
+    top: 70px;
+    position: relative;
+}
+
+.custom-modal {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.add-products-modal input {
+    width: 100px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.add-products-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-product-button-modal {
+    width: 100px;
+    margin-top: 25px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(123, 255, 132);
+    font-size: 17px;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
 }
