@@ -3,6 +3,7 @@ import React, { useEffect, useState, createContext } from 'react';
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
+  const token = localStorage.getItem('token');
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
@@ -62,17 +63,33 @@ export const ProductProvider = ({ children }) => {
       searchTerm: '',
     });
   };
+ 
+  const removeProductFromAdminPanel = async (productId) => {
+    try {
+      await fetch(`http://localhost:3000/api/products/${productId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  
 
   return (
     <ProductContext.Provider
       value={{
         products,
+        setProducts,
         currentPage,
         nextPage,
         prevPage,
         applyFilters,
         resetFilters,
-        filters
+        filters,
+        removeProductFromAdminPanel
       }}
     >
       {children}

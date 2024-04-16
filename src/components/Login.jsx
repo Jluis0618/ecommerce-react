@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 
 
+
 function Login() {
 
   const [error, setError] = useState(null);
@@ -34,10 +35,16 @@ function Login() {
             body: JSON.stringify(registerData),
           });
           if (response.ok) {
-            const {token} = await response.json()
+            const {token, rol} = await response.json()
             localStorage.setItem('token', token)
-            console.log(token)
-            window.location.href = "/";
+            localStorage.setItem('rol', rol)
+            
+            if(rol === 'admin'){
+              window.location.href = '/adminpanel'
+            } else{
+              window.location.href = '/'
+            }
+
           }else {
             const { error  } = await response.json();
             setError(error);
