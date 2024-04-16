@@ -5,9 +5,11 @@ import { Footer } from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 import { useContext, useEffect } from "react";
 import { loadScript } from "@paypal/paypal-js";
+import Swal from "sweetalert2";
 
 function Cart() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, emptyCart } = useContext(CartContext);
+  const totalCartItems = cartItems.length;
   const totalPrice = cartItems.reduce(
     (total, product) => total + product.price,
     0
@@ -36,16 +38,22 @@ function Cart() {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ totalAmount: totalPrice.toFixed(2) }),
+            body: JSON.stringify({ totalAmount: totalPrice.toFixed(2)}),
           });
           const { orderId } = await response.json();
           
-          console.log(orderId)
           return orderId;
         },
         onApprove: (data) => {
-          // Lógica para procesar el pago de PayPal
-          alert("Pago completado con éxito");
+          Swal.fire({
+            title: "Pago exitoso",
+            text: "Tu pago ha sido procesado exitosamente",
+            icon: "success",
+            confirmButtonText: "Ok",
+          }).then(
+            emptyCart(),
+            window.location.href = "/"
+          )
         },
       }).render("#paypal-button-container");
     } catch (error) {
@@ -56,7 +64,8 @@ function Cart() {
   
   useEffect(() => {
     loadPayPalScript();
-  }, [token]);
+  }, []);
+
 
 
   return (
@@ -65,21 +74,23 @@ function Cart() {
       <div className="content-cart">
         <div className="cart">
           <h1 className="cart-title">Tu carrito</h1>
-          <p className="total-products-card">
-            Total: <span>{cartItems.length}</span>
-          </p>
-
           <div className="cart__items">
-            {cartItems.map((product) => (
-              <CardProductCart key={product.id} product={product} />
-            ))}
+            {
+              (totalCartItems > 0) 
+              ? 
+              cartItems.map((product) => (
+                <CardProductCart key={product._id} product={product} />
+              ))
+              :
+              <p>No hay productos en el carrito</p>
+            }
           </div>
         </div>
         <aside className="cart-pay-aside">
           <h2 className="cart-pay-title">Resumen de compra</h2>
           <div className="cart-pay-info">
             <p>
-              Cantidad de productos: <span className="cart-pay-cant">{cartItems.length}</span>
+              Cantidad de productos: <span className="cart-pay-cant">{totalCartItems}</span>
             </p>
             <p>
               Total: <span className="cart-pay-total">RD${totalPrice}</span>
@@ -88,7 +99,6 @@ function Cart() {
           </div>
         </aside>
       </div>
-      <Footer />
     </>
   );
 }

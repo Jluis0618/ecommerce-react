@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import "./CardProduct.css"
 import { BiCartAdd, BiCheckCircle } from "react-icons/bi";
 import { CartContext } from '../context/CartContext';
+import Swal from "sweetalert2";
 
 
 export const CardProduct = ({product}) => {
@@ -11,10 +12,16 @@ export const CardProduct = ({product}) => {
 
 
   const handleAddToCart = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Producto agregado al carrito",
+      showConfirmButton: false,
+      timer: 1500
+    });
+
     addToCart(product);
     setShowCheckIcon(true);
 
-    // Simulamos volver al icono del carrito después de 2 segundos
     setTimeout(() => {
       setShowCheckIcon(false);
     }, 2000);
@@ -30,9 +37,7 @@ export const CardProduct = ({product}) => {
         <div className="name-product">
           <h2>{product.name}</h2>
         </div>
-        {/* <div className="rate">
-          <p>Rate</p>
-        </div> */}
+        
         <div className="price-product-cart">
           <h3>RD$ {product.price}</h3>
           {showCheckIcon ? (

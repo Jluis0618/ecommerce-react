@@ -76,8 +76,27 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const emptyCart = async() =>{
+    try {
+      const response = await fetch(`http://localhost:3000/api/cartAll`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      if (response.ok) {
+        setCartItems([]);
+        console.log('Carrito vaciado correctamente');
+      } else {
+        console.error('Error al eliminar producto del carrito');
+      }
+    } catch (error) {
+      console.error('Error al eliminar producto del carrito:', error);
+    }
+  } 
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, emptyCart }}>
       {children}
     </CartContext.Provider>
   );

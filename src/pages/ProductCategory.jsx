@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import { CardProduct } from '../components/CardProduct';
+import "./ProductCategory.css"
 
 const ProductCategory = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const category = location.pathname.split('/').pop();
+  
   useEffect(() => {
     const fetchProductsByCategory = async () => {
-      const category = 'electronics'; // Aquí puedes definir la categoría dinámicamente según la página
+      
       const url = `http://localhost:3000/api/products/${category}?page=1`;
 
       try {
@@ -18,7 +21,7 @@ const ProductCategory = () => {
           throw new Error('Error al obtener los productos');
         }
         const data = await response.json();
-        setProducts(data.docs); // "docs" contiene la lista de productos paginados
+        setProducts(data.docs);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -27,7 +30,7 @@ const ProductCategory = () => {
     };
 
     fetchProductsByCategory();
-  }, []); // Ejecutar una sola vez al montar el componente
+  }, []);
 
   if (loading) {
     return <p>Cargando productos...</p>;
@@ -37,14 +40,19 @@ const ProductCategory = () => {
     return <p>Error: {error}</p>;
   }
 
+  const categoryCapitalized = category.charAt(0).toUpperCase() + category.slice(1);
+
+
   return (
     <>
       <NavBar />
-      <h1>Productos de la categoría: Electronics</h1>
+      <div className="content-product-list">
+      <h1 className='title-product-list'>{categoryCapitalized}</h1>
       <div className="product-list">
         {products.map((product) => (
           <CardProduct key={product._id} product={product} />
         ))}
+      </div>
       </div>
     </>
   );

@@ -1,9 +1,10 @@
-import { useContext,useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoCartSharp } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import "./NavBar.css";
 import { AuthContext } from "../context/AuthContext";
+import { CartContext } from "../context/CartContext";
 
 
 
@@ -11,12 +12,13 @@ import { AuthContext } from "../context/AuthContext";
 function NavBar() {
 
   const { user, logout } = useContext(AuthContext);
+  const { cartItems } = useContext(CartContext);
 
   const rol = localStorage.getItem('rol');
+  const totalCartItems = cartItems.length || 0;
 
   const handleLogout = () => {
     logout();
-    window.location.href = "/login";
   }
 
 
@@ -51,7 +53,6 @@ function NavBar() {
         {/* <input type="text" placeholder="Buscar productos" className="input-search-term"/> */}
 
         <div className="log-container">
-           <Link to="/cart" className="cart-icon"><IoCartSharp className="react-icon-cart"/></Link>
            {user ? (
           <>
             <div className="account">
@@ -65,6 +66,17 @@ function NavBar() {
         )}
         </div>
 
+        <Link 
+              to="/cart" 
+              className="cart-icon">
+                
+                <IoCartSharp className="react-icon-cart"/>
+                {
+                  totalCartItems > 0 && (
+                    <span className="cart-counter">{totalCartItems}</span>
+                  )
+                }
+           </Link>
 
 
       </nav>

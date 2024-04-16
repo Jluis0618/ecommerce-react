@@ -1,0 +1,23 @@
+.content-product-list{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.title-product-list{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #57A2AE;
+    text-align: left;
+    margin: 20px 0px;
+}
+
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+}

@@ -22,7 +22,7 @@ export const categories = [
    },
    {
     id: 4,
-     name: "Tv's",
+     name: "Tvs",
      img: "https://i.postimg.cc/xqV8V2tR/Dise-o-sin-t-tulo-5.png"
    },
    {
