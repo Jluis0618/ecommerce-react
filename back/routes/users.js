@@ -21,7 +21,7 @@ routerUser.post("/login", async (req, res) => {
     const {email, password} = req.body
     const user = await User.userExist(email, password);
     const token = await user.generateJwt();
-    res.send({ user, token });
+    res.send({ user, token, rol: user.rol});
   } catch (error) {
     res.status(400).send({error: error.message});
   }

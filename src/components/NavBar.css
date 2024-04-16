@@ -98,7 +98,7 @@ body {
   font-size: 30px;
 }
 
-.btnLogIn{
+.btnLogIn, #admin{
   background-color: #fff;
   color: #58a4b0;
   padding: 5px 10px;
@@ -109,6 +109,8 @@ body {
   font-weight: 500;
   text-decoration: none;
 }
+
+
 .btnLogOut{
   background-color: #fff;
   color: #58a4b0;

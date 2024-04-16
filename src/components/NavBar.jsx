@@ -12,6 +12,7 @@ function NavBar() {
 
   const { user, logout } = useContext(AuthContext);
 
+  const rol = localStorage.getItem('rol');
 
   const handleLogout = () => {
     logout();
@@ -32,6 +33,19 @@ function NavBar() {
           <li>
             <Link to="/contact" className="links">Contacto</Link>
           </li>
+          {
+           (rol === 'admin') 
+           ?
+           (
+            <li>
+               <Link to="/adminPanel" className="links" id="admin">Admin</Link>
+            </li>
+          )
+          :
+          (
+            ""
+          )
+          }        
         </ul>
 
         {/* <input type="text" placeholder="Buscar productos" className="input-search-term"/> */}

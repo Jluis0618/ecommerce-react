@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     // Implementa la lógica para cerrar sesión (borrar token, etc.)
     localStorage.removeItem('token');
+    localStorage.removeItem('rol');
     setUser(null);
   };
 

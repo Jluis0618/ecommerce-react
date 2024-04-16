@@ -82,6 +82,7 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products,
+        setProducts,
         currentPage,
         nextPage,
         prevPage,

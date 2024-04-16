@@ -46,7 +46,10 @@ const userSchema = new mongoose.Schema({
       ref: "CartProduct",
     },
   ],
-  rol: String
+  rol: {
+    type: String,
+    default: "client",
+    },
 });
 
 userSchema.statics.userExist = async (email, password) => {
