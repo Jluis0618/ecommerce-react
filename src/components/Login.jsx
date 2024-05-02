@@ -12,42 +12,42 @@ import { useState } from 'react';
 
 function Login() {
 
-  const [error, setError] = useState(null);
+    const [error, setError] = useState(null); //estado para manejar errores
 
-    const [registerData, setRegisterData] = useState({
+    const [registerData, setRegisterData] = useState({ //estado para manejar los datos del formulario
         email: "",
         password: "",
       });
     
-      const handleChange = (e) => {
-        setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+      const handleChange = (e) => { 
+        setRegisterData({ ...registerData, [e.target.name]: e.target.value }); // actualiza el estado con los valores del formulario
         console.log(registerData);
       };
     
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch("http://localhost:3000/api/login", {
+          const response = await fetch("http://localhost:3000/api/login", { //envia los datos al servidor
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(registerData),
+            body: JSON.stringify(registerData), //convierte los datos a un string
           });
           if (response.ok) {
-            const {token, rol} = await response.json()
-            localStorage.setItem('token', token)
-            localStorage.setItem('rol', rol)
+            const {token, rol} = await response.json() //recibe la respuesta del servidor
+            localStorage.setItem('token', token) //guarda el token en el local storage
+            localStorage.setItem('rol', rol) //guarda el rol en el local storage
             
             if(rol === 'admin'){
-              window.location.href = '/adminpanel'
+              window.location.href = '/adminpanel'  //redirecciona a la pagina de admin
             } else{
-              window.location.href = '/'
+              window.location.href = '/' //redirecciona a la pagina principal
             }
 
           }else {
-            const { error  } = await response.json();
-            setError(error);
+            const { error  } = await response.json();   //recibe el error del servidor
+            setError(error); //actualiza el estado con el error
         }
         } catch (error) {
           console.log({ error: error.message });

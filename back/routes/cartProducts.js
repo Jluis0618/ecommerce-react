@@ -32,7 +32,7 @@ routerCart.get("/cart/one", auth, async (req, res) => {
 routerCart.delete("/cart/:id", auth, async (req, res) => {
   const productId = req.params.id;
   const userId = req.user._id; // Obtiene el ID del usuario autenticado desde el middleware de autenticación
-
+ 
   try {
     // Busca el producto en el carrito del usuario por su ID y el ID del propietario (usuario autenticado)
     const cartProduct = await CartProduct.findOneAndDelete({ _id: productId, owner: userId });

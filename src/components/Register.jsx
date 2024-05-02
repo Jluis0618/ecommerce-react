@@ -35,7 +35,7 @@ function Register() {
         body: JSON.stringify(registerData),
       });
       if (response.ok) {
-        setRegistrationSuccess(true);
+       setRegistrationSuccess(true); 
         setTimeout(() => {
           setRegistrationSuccess(false);
           window.location.href = '/login'
